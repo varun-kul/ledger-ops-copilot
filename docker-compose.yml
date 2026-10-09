@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env  # GEMINI_API_KEY / NVIDIA_API_KEY / SLACK_WEBHOOK_URL, if set
+    volumes:
+      # Mount data/ so it persists across container restarts and can be
+      # refreshed by re-running the pipeline scripts without rebuilding the
+      # image -- useful for local dev; a real deployment would replace this
+      # with a scheduled job writing to a shared volume or object store.
+      - ./data:/app/data
+    restart: unless-stopped

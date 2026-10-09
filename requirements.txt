@@ -1,0 +1,22 @@
+# Week 1 -- ingestion + reconciliation
+pytest>=8.0
+
+# Week 2 -- fraud rules + copilot
+scikit-learn>=1.4   # TF-IDF retrieval for the copilot (no embedding model needed)
+requests>=2.31       # talks to Ollama / Gemini / NVIDIA
+python-dotenv>=1.0   # loads GEMINI_API_KEY / NVIDIA_API_KEY / etc. from a .env file
+
+# Week 3 -- dashboard API + Slack alerts
+fastapi>=0.110
+uvicorn>=0.29
+
+# Optional, only needed if you point stripe_source.py at a real Stripe test
+# account instead of the bundled fixture (set STRIPE_API_KEY to enable):
+# stripe>=9.0
+
+# Optional, only needed for the live websocket replay (serve_replay/consume_stream
+# in app/ingestion/live_stream.py) -- not required for the batch pipeline:
+# websockets>=12.0
+
+# Optional, for real generated copilot answers instead of the fallback:
+# install Ollama separately (https://ollama.com), then: ollama pull llama3.1

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>LedgerOps Copilot</title>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f5f6f8; color: #1a1d23;
+  }
+  header {
+    background: #1a1d23; color: white; padding: 20px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  header p { margin: 2px 0 0; font-size: 13px; color: #9aa0ab; }
+  main { max-width: 1100px; margin: 0 auto; padding: 24px 20px 60px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin-bottom: 28px; }
+  .card { background: white; border-radius: 10px; padding: 16px 18px; border: 1px solid #e5e7eb; }
+  .card .label { font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.04em; }
+  .card .value { font-size: 28px; font-weight: 700; margin-top: 4px; }
+  .card.critical .value { color: #dc2626; }
+  .card.warning .value { color: #d97706; }
+  .card.ok .value { color: #059669; }
+  section { background: white; border-radius: 10px; border: 1px solid #e5e7eb; margin-bottom: 20px; overflow: hidden; }
+  section h2 { font-size: 14px; margin: 0; padding: 14px 18px; border-bottom: 1px solid #e5e7eb; background: #fafafa; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 8px 18px; color: #6b7280; font-weight: 600; font-size: 11px; text-transform: uppercase; }
+  td { padding: 8px 18px; border-top: 1px solid #f0f0f0; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .badge.critical { background: #fee2e2; color: #b91c1c; }
+  .badge.warning { background: #fef3c7; color: #b45309; }
+  .badge.info { background: #e0e7ff; color: #4338ca; }
+  .empty { padding: 18px; color: #9ca3af; font-size: 13px; }
+  .copilot { display: flex; flex-direction: column; height: 420px; }
+  .copilot .messages { flex: 1; overflow-y: auto; padding: 14px 18px; }
+  .msg { margin-bottom: 14px; }
+  .msg .role { font-size: 11px; color: #9ca3af; margin-bottom: 3px; }
+  .msg .text { font-size: 13px; white-space: pre-wrap; line-height: 1.5; }
+  .msg .sources { margin-top: 6px; font-size: 11px; color: #6b7280; }
+  .msg .sources code { background: #f3f4f6; padding: 1px 5px; border-radius: 4px; }
+  .copilot form { display: flex; gap: 8px; padding: 12px 18px; border-top: 1px solid #e5e7eb; }
+  .copilot input { flex: 1; padding: 9px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px; }
+  .copilot button { padding: 9px 16px; border: none; border-radius: 6px; background: #1a1d23; color: white; font-size: 13px; cursor: pointer; }
+  .copilot button:disabled { opacity: 0.5; cursor: default; }
+  .error-banner { background: #fee2e2; color: #b91c1c; padding: 12px 18px; border-radius: 8px; margin-bottom: 20px; font-size: 13px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+function Badge({ severity }) {
+  return <span className={`badge ${severity}`}>{severity}</span>;
+}
+
+function SummaryCards({ summary }) {
+  if (!summary) return null;
+  const a = summary.alertworthy;
+  return (
+    <div className="cards">
+      <div className="card">
+        <div className="label">Total refs checked</div>
+        <div className="value">{summary.reconciliation.total_refs}</div>
+      </div>
+      <div className="card ok">
+        <div className="label">Clean</div>
+        <div className="value">{summary.reconciliation.clean_count}</div>
+      </div>
+      <div className="card warning">
+        <div className="label">Reconciliation breaks</div>
+        <div className="value">{summary.reconciliation.break_count}</div>
+      </div>
+      <div className="card critical">
+        <div className="label">Fraud flags (audit)</div>
+        <div className="value">{summary.fraud.flags}</div>
+      </div>
+      <div className="card critical">
+        <div className="label">Would page Slack</div>
+        <div className="value">{a.breaks + a.flags}</div>
+      </div>
+    </div>
+  );
+}
+
+function BreaksTable({ breaks }) {
+  const critical = breaks.filter(b => b.severity !== "info").slice(0, 15);
+  return (
+    <section>
+      <h2>Reconciliation breaks (top {critical.length} of {breaks.length})</h2>
+      {critical.length === 0 ? <div className="empty">No breaks.</div> : (
+        <table>
+          <thead><tr><th>Transaction</th><th>Reason</th><th>Severity</th><th>Detail</th></tr></thead>
+          <tbody>
+            {critical.map((b, i) => (
+              <tr key={i}>
+                <td><code>{b.txn_ref}</code></td>
+                <td>{b.reason.replaceAll("_", " ")}</td>
+                <td><Badge severity={b.severity} /></td>
+                <td style={{color: "#6b7280"}}>{b.detail}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </section>
+  );
+}
+
+function FlagsTable({ flags }) {
+  return (
+    <section>
+      <h2>Fraud flags -- alert-worthy only ({flags.length})</h2>
+      {flags.length === 0 ? <div className="empty">Nothing currently alert-worthy.</div> : (
+        <table>
+          <thead><tr><th>Transaction(s)</th><th>Rule</th><th>Severity</th><th>Explanation</th></tr></thead>
+          <tbody>
+            {flags.map((f, i) => (
+              <tr key={i}>
+                <td><code>{f.txn_refs.join(", ")}</code></td>
+                <td>{f.rule.replaceAll("_", " ")}</td>
+                <td><Badge severity={f.severity} /></td>
+                <td style={{color: "#6b7280"}}>{f.explanation}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </section>
+  );
+}
+
+function Copilot() {
+  const [messages, setMessages] = useState([
+    { role: "system", text: "Ask about reconciliation breaks or fraud flags." }
+  ]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+  }, [messages]);
+
+  async function send(e) {
+    e.preventDefault();
+    const question = input.trim();
+    if (!question || loading) return;
+    setMessages(m => [...m, { role: "user", text: question }]);
+    setInput("");
+    setLoading(true);
+    try {
+      const res = await fetch("/api/copilot/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question }),
+      });
+      if (!res.ok) throw new Error(`API error ${res.status}`);
+      const data = await res.json();
+      setMessages(m => [...m, { role: "assistant", text: data.answer, sources: data.sources }]);
+    } catch (err) {
+      setMessages(m => [...m, { role: "error", text: `Request failed: ${err.message}` }]);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <section className="copilot">
+      <h2>Ask the copilot</h2>
+      <div className="messages" ref={scrollRef}>
+        {messages.map((m, i) => (
+          <div className="msg" key={i}>
+            <div className="role">{m.role}</div>
+            <div className="text">{m.text}</div>
+            {m.sources && m.sources.length > 0 && (
+              <div className="sources">
+                sources: {m.sources.map((s, j) => <code key={j}>{s.doc_id}</code>)}
+              </div>
+            )}
+          </div>
+        ))}
+        {loading && <div className="msg"><div className="role">assistant</div><div className="text">…</div></div>}
+      </div>
+      <form onSubmit={send}>
+        <input
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          placeholder="e.g. which transactions had amount mismatches?"
+          disabled={loading}
+        />
+        <button type="submit" disabled={loading}>Ask</button>
+      </form>
+    </section>
+  );
+}
+
+function App() {
+  const [summary, setSummary] = useState(null);
+  const [breaks, setBreaks] = useState([]);
+  const [flags, setFlags] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function load() {
+      try {
+        const [s, b, f] = await Promise.all([
+          fetch("/api/summary").then(r => { if (!r.ok) throw new Error("summary: " + r.status); return r.json(); }),
+          fetch("/api/breaks").then(r => r.json()),
+          fetch("/api/fraud-flags?alertworthy_only=true").then(r => r.json()),
+        ]);
+        setSummary(s);
+        setBreaks(b.breaks);
+        setFlags(f.flags);
+      } catch (err) {
+        setError(err.message + " -- have you run run_reconciliation.py and run_fraud_detection.py?");
+      }
+    }
+    load();
+  }, []);
+
+  return (
+    <React.Fragment>
+      <header>
+        <div>
+          <h1>LedgerOps Copilot</h1>
+          <p>Meridian Pay -- reconciliation, fraud monitoring, and ops copilot</p>
+        </div>
+      </header>
+      <main>
+        {error && <div className="error-banner">{error}</div>}
+        <SummaryCards summary={summary} />
+        {summary && <BreaksTable breaks={breaks} />}
+        {summary && <FlagsTable flags={flags} />}
+        <Copilot />
+      </main>
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

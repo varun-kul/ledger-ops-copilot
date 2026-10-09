@@ -1,0 +1,9 @@
+{
+  "_comment": "Per-customer configuration for fraud rule tuning. See docs/feedback-log.md cycle 2 -- this replaces the hardcoded EXPECTED_COUNTRIES constant in app/fraud/rules.py so it can change without a code deploy when the customer's business changes shape.",
+  "customer": "Meridian Pay",
+  "expected_countries": ["US", "GB", "NG"],
+  "expected_countries_history": [
+    {"as_of": "2026-08-01", "countries": ["US", "GB"], "note": "initial config at engagement start"},
+    {"as_of": "2026-08-24", "countries": ["US", "GB", "NG"], "note": "Meridian Pay opened a Lagos office -- see feedback-log.md cycle 2"}
+  ]
+}

@@ -1,0 +1,994 @@
+{
+  "summary": {
+    "total_refs": 256,
+    "clean_count": 188,
+    "break_count": 68,
+    "by_reason": {
+      "amount_mismatch": 10,
+      "missing_in_ledger": 58
+    },
+    "by_severity": {
+      "warning": 62,
+      "critical": 6
+    },
+    "generated_at": "2026-09-02T03:02:21.526966+00:00"
+  },
+  "breaks": [
+    {
+      "txn_ref": "TXN-00038",
+      "reason": "amount_mismatch",
+      "detail": "amount mismatch across sources: [1996, 1999] cents",
+      "severity": "warning",
+      "sources_present": [
+        "legacy_ledger",
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": []
+    },
+    {
+      "txn_ref": "TXN-00046",
+      "reason": "amount_mismatch",
+      "detail": "amount mismatch across sources: [12000, 12002] cents",
+      "severity": "warning",
+      "sources_present": [
+        "legacy_ledger",
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": []
+    },
+    {
+      "txn_ref": "TXN-00097",
+      "reason": "amount_mismatch",
+      "detail": "amount mismatch across sources: [2497, 2500] cents",
+      "severity": "warning",
+      "sources_present": [
+        "legacy_ledger",
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": []
+    },
+    {
+      "txn_ref": "TXN-00111",
+      "reason": "amount_mismatch",
+      "detail": "amount mismatch across sources: [999996, 999999] cents",
+      "severity": "warning",
+      "sources_present": [
+        "legacy_ledger",
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": []
+    },
+    {
+      "txn_ref": "TXN-00117",
+      "reason": "amount_mismatch",
+      "detail": "amount mismatch across sources: [15000, 15002] cents",
+      "severity": "warning",
+      "sources_present": [
+        "legacy_ledger",
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": []
+    },
+    {
+      "txn_ref": "TXN-00135",
+      "reason": "amount_mismatch",
+      "detail": "amount mismatch across sources: [7598, 7599] cents",
+      "severity": "warning",
+      "sources_present": [
+        "legacy_ledger",
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": []
+    },
+    {
+      "txn_ref": "TXN-00150",
+      "reason": "amount_mismatch",
+      "detail": "amount mismatch across sources: [7596, 7599] cents",
+      "severity": "warning",
+      "sources_present": [
+        "legacy_ledger",
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": []
+    },
+    {
+      "txn_ref": "TXN-00184",
+      "reason": "amount_mismatch",
+      "detail": "amount mismatch across sources: [7598, 7599] cents",
+      "severity": "warning",
+      "sources_present": [
+        "legacy_ledger",
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": []
+    },
+    {
+      "txn_ref": "TXN-00195",
+      "reason": "amount_mismatch",
+      "detail": "amount mismatch across sources: [1999, 2000] cents",
+      "severity": "warning",
+      "sources_present": [
+        "legacy_ledger",
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": []
+    },
+    {
+      "txn_ref": "TXN-00244",
+      "reason": "amount_mismatch",
+      "detail": "amount mismatch across sources: [999999, 1000001] cents",
+      "severity": "warning",
+      "sources_present": [
+        "legacy_ledger",
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": []
+    },
+    {
+      "txn_ref": "TXN-00004",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00004 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00010",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00010 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00011",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00011 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00013",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00013 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00016",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00016 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00022",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00022 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00026",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00026 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00028",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00028 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00041",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00041 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00042",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00042 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00045",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00045 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00047",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00047 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00058",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00058 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00062",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00062 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00065",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00065 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00066",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00066 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00069",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00069 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00075",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00075 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00078",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00078 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00080",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00080 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00081",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00081 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00086",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00086 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00099",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00099 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00106",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00106 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00107",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00107 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00113",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00113 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00119",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00119 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00128",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00128 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00131",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00131 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00138",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00138 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00140",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00140 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00144",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00144 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00151",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00151 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00154",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00154 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00157",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00157 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00158",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00158 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00163",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00163 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00167",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00167 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00171",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00171 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00181",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00181 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00190",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00190 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00198",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00198 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00204",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00204 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00208",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00208 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00209",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00209 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00214",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00214 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00217",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00217 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00224",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00224 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00231",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00231 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00241",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00241 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00242",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00242 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-00249",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-00249 present in ['stripe', 'live_stream'], missing from ['legacy_ledger'] past settlement window",
+      "severity": "warning",
+      "sources_present": [
+        "stripe",
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger"
+      ]
+    },
+    {
+      "txn_ref": "TXN-BURST-00",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-BURST-00 present in ['live_stream'], missing from ['legacy_ledger', 'stripe'] past settlement window",
+      "severity": "critical",
+      "sources_present": [
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger",
+        "stripe"
+      ]
+    },
+    {
+      "txn_ref": "TXN-BURST-01",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-BURST-01 present in ['live_stream'], missing from ['legacy_ledger', 'stripe'] past settlement window",
+      "severity": "critical",
+      "sources_present": [
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger",
+        "stripe"
+      ]
+    },
+    {
+      "txn_ref": "TXN-BURST-02",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-BURST-02 present in ['live_stream'], missing from ['legacy_ledger', 'stripe'] past settlement window",
+      "severity": "critical",
+      "sources_present": [
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger",
+        "stripe"
+      ]
+    },
+    {
+      "txn_ref": "TXN-BURST-03",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-BURST-03 present in ['live_stream'], missing from ['legacy_ledger', 'stripe'] past settlement window",
+      "severity": "critical",
+      "sources_present": [
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger",
+        "stripe"
+      ]
+    },
+    {
+      "txn_ref": "TXN-BURST-04",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-BURST-04 present in ['live_stream'], missing from ['legacy_ledger', 'stripe'] past settlement window",
+      "severity": "critical",
+      "sources_present": [
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger",
+        "stripe"
+      ]
+    },
+    {
+      "txn_ref": "TXN-BURST-05",
+      "reason": "missing_in_ledger",
+      "detail": "TXN-BURST-05 present in ['live_stream'], missing from ['legacy_ledger', 'stripe'] past settlement window",
+      "severity": "critical",
+      "sources_present": [
+        "live_stream"
+      ],
+      "sources_missing": [
+        "legacy_ledger",
+        "stripe"
+      ]
+    }
+  ],
+  "skipped_ledger_rows": [
+    {
+      "row": 10,
+      "reason": "missing_reference",
+      "raw": {
+        "reference": "",
+        "amount_usd": "75.99",
+        "posted_at": "08/07/2026 06:01 AM",
+        "acct": "MERIDIAN-OPS-01"
+      }
+    },
+    {
+      "row": 13,
+      "reason": "missing_reference",
+      "raw": {
+        "reference": "",
+        "amount_usd": "120.00",
+        "posted_at": "2026-08-06 11:32:00",
+        "acct": "MERIDIAN-OPS-01"
+      }
+    },
+    {
+      "row": 19,
+      "reason": "missing_reference",
+      "raw": {
+        "reference": "",
+        "amount_usd": "9999.99",
+        "posted_at": "08/07/2026 08:16 PM",
+        "acct": "MERIDIAN-OPS-01"
+      }
+    },
+    {
+      "row": 81,
+      "reason": "missing_reference",
+      "raw": {
+        "reference": "",
+        "amount_usd": "150.00",
+        "posted_at": "08/08/2026 10:58 PM",
+        "acct": "MERIDIAN-OPS-01"
+      }
+    },
+    {
+      "row": 88,
+      "reason": "missing_reference",
+      "raw": {
+        "reference": "",
+        "amount_usd": "120.00",
+        "posted_at": "2026-08-08 03:01:00",
+        "acct": "MERIDIAN-OPS-01"
+      }
+    },
+    {
+      "row": 109,
+      "reason": "missing_reference",
+      "raw": {
+        "reference": "",
+        "amount_usd": "150.00",
+        "posted_at": "2026-08-07 06:27:00",
+        "acct": "MERIDIAN-OPS-01"
+      }
+    },
+    {
+      "row": 175,
+      "reason": "missing_reference",
+      "raw": {
+        "reference": "",
+        "amount_usd": "120.00",
+        "posted_at": "08/07/2026 05:48 PM",
+        "acct": "MERIDIAN-OPS-01"
+      }
+    },
+    {
+      "row": 182,
+      "reason": "missing_reference",
+      "raw": {
+        "reference": "",
+        "amount_usd": "45.00",
+        "posted_at": "08/09/2026 11:39 AM",
+        "acct": "MERIDIAN-OPS-01"
+      }
+    },
+    {
+      "reason": "duplicate_row_deduped",
+      "txn_ref": "TXN-00001"
+    },
+    {
+      "reason": "duplicate_row_deduped",
+      "txn_ref": "TXN-00061"
+    },
+    {
+      "reason": "duplicate_row_deduped",
+      "txn_ref": "TXN-00194"
+    },
+    {
+      "reason": "duplicate_row_deduped",
+      "txn_ref": "TXN-00196"
+    },
+    {
+      "reason": "duplicate_row_deduped",
+      "txn_ref": "TXN-00197"
+    }
+  ]
+}

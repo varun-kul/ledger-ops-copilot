@@ -1,0 +1,31 @@
+{
+  "summary": {
+    "scanned": 256,
+    "flags": 1,
+    "by_rule": {
+      "velocity": 1
+    },
+    "by_severity": {
+      "critical": 1
+    }
+  },
+  "flags": [
+    {
+      "txn_refs": [
+        "TXN-BURST-00",
+        "TXN-BURST-01",
+        "TXN-BURST-02",
+        "TXN-BURST-03",
+        "TXN-BURST-04"
+      ],
+      "rule": "velocity",
+      "explanation": "5 transactions from NG within 5 minutes (threshold: 4)",
+      "severity": "critical",
+      "evidence": {
+        "country": "NG",
+        "count": 5,
+        "window_minutes": 5.0
+      }
+    }
+  ]
+}
